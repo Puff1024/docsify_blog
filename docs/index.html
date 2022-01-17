@@ -26,7 +26,7 @@
       autoHeader: true,   // 同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题
       maxLevel: 4,
       subMaxLevel: 4,     //开启目录功能，默认情况下每个标题都会自动添加到目录中
-      loadNavbar: true,   //开启导航栏页
+      // loadNavbar: true,   //开启导航栏页
       // loadNavbar: 'nav.md',   //开启导航栏页
       // coverpage: true,    //开启封面功能
       auto2top: true,
@@ -49,33 +49,25 @@
       //   return time;
       // },
       topMargin: 90,
-      // vueComponents: {
-      //   'button-counter': {
-      //     template: `
-      //     <button @click="count += 1">
-      //     You clicked me {{ count }} times
-      //   </button>
-      //     `,
-      //     data() {
-      //       return {
-      //         count: 0,
-      //       }
-      //     }
-      //   }
-      // }
-      // vueGlobalOptions: {
-      //   data() {
-      //     return {
-      //       count: 0,
-      //     }
-      //   }
-      // }
+      routerMode: 'history',
+      externalLinkTarget: '_self',
+
+      search: {
+        maxAge: 86400000,
+        path: [],
+        placeholder: 'Type to search',
+      },
+      noData: 'No Result!',
+      depth: 2,
+      pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1'],
+
     }
   </script>
 
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
 </body>
 
 </html>
