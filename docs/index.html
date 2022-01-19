@@ -8,6 +8,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="icon" href="/_media/PerfactWorld.ico" />
 </head>
 
 <body>
@@ -20,38 +21,20 @@
 
   <script>
     window.$docsify = {
-      // name: 'docsify',
-      repo: 'docsifyjs/docsify',
+      name: 'PS像素风暴',
+      // repo: 'docsifyjs/docsify',
       loadSidebar: true, //开启侧边栏
       autoHeader: true,   // 同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题
       maxLevel: 4,
       subMaxLevel: 4,     //开启目录功能，默认情况下每个标题都会自动添加到目录中
-      // loadNavbar: true,   //开启导航栏页
-      // loadNavbar: 'nav.md',   //开启导航栏页
-      // coverpage: true,    //开启封面功能
       auto2top: true,
-      // homepage: 'https://raw.githubusercontent.com/docsifyjs/docsify/master/README.md',
-      // basePath: '/guide/'
       relativePath: true,
       nameLink: '/',
       // themeColor: '#3F51B5',
-      alias: {
-        '/zh-cn/changelog': '/changelog',
-        '/changelog':
-          'https://raw.githubusercontent.com/docsifyjs/docsify/master/CHANGELOG',
-      },
       executeScript: true,
-      // mergeNavbar: true,
-      // formatUpdated: 'MM}/{DD} {HH}:{mm}',
-      // formatUpdated: function (time) {
-      //   // ...
-
-      //   return time;
-      // },
       topMargin: 90,
       routerMode: 'history',
-      externalLinkTarget: '_self',
-
+      externalLinkTarget: '_blank', //外链打开方式：_blank表示在新标签页中打开
       search: {
         maxAge: 86400000,
         path: [],
@@ -60,14 +43,28 @@
       noData: 'No Result!',
       depth: 2,
       pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1'],
-
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md',
+      },
+      search: {
+        paths: 'auto',
+        placeholder: '🔍 搜索',
+        noData: '😒 找不到结果',
+        // Headline depth, 1 - 6
+        depth: 6,
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+      },//添加搜索框
+      // logo: '/_media/PerfactWorld.png', //sidebar上方的logo
     }
   </script>
 
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-  <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/search.min.js"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 复制代码-->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
 </body>
 
 </html>
