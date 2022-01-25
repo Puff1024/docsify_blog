@@ -1,21 +1,21 @@
-![logo](_media/icon.svg)
+<!-- ![logo](/_media/perfact-world.ico) -->
 
-# docsify <small>3.5</small>
+# PS像素风暴 
 
-> 一个神奇的文档网站生成器。
+> 团队技术博客
 
 - 简单、轻便
 - 无需生成 html 文件
-- 众多主题
+
 
 [GitHub](https://github.com/docsifyjs/docsify/)
-[Get Started](#docsify)
+[Get Started](README.md)
 
 <!-- 背景图片 -->
 
-![](_media/talk.jpg)
+
 
 <!-- 背景色 -->
 
-![color](#f0f0f0)
+<!-- ![color](#fff) -->
 

@@ -8,21 +8,41 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <link rel="icon" href="/_media/PerfactWorld.ico" />
+  <link rel="icon" href="/_media/perfact-world.ico" />
+  <!-- 引入mermaid -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+  <style>
+    /* 侧边目录样式 */
+    .sidebar-nav ul li>p {
+      color: #3f3f3f;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .sidebar-nav>ul>li:first-child>a,
+    .sidebar-nav>ul>li:first-child>p>a {
+      color: #252525;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .sidebar-nav ul li a {
+      color: #3f3f3f;
+      font-weight: 500;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- <nav>
-    <a href="#/">EN</a>
-    <a href="#/zh-cn/">中文</a>
-  </nav> -->
-
   <div id="app">加载中</div>
-
+  <!-- 引入mermaid -->
+  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script>
+    var num = 0;
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
     window.$docsify = {
       name: 'PS像素风暴',
-      // repo: 'docsifyjs/docsify',
       loadSidebar: true, //开启侧边栏
       autoHeader: true,   // 同时设置 loadSidebar 和 autoHeader 后，可以根据 _sidebar.md 的内容自动为每个页面增加标题
       maxLevel: 4,
@@ -30,19 +50,12 @@
       auto2top: true,
       relativePath: true,
       nameLink: '/',
-      // themeColor: '#3F51B5',
+      coverpage: true,
       executeScript: true,
       topMargin: 90,
       routerMode: 'history',
       externalLinkTarget: '_blank', //外链打开方式：_blank表示在新标签页中打开
-      search: {
-        maxAge: 86400000,
-        path: [],
-        placeholder: 'Type to search',
-      },
-      noData: 'No Result!',
       depth: 2,
-      pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1'],
       alias: {
         '/.*/_sidebar.md': '/_sidebar.md',
       },
@@ -53,8 +66,21 @@
         // Headline depth, 1 - 6
         depth: 6,
         maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-      },//添加搜索框
+        pathNamespaces: ['/zh-cn', '/ru-ru', '/ru-ru/v1']
+      },
       // logo: '/_media/PerfactWorld.png', //sidebar上方的logo
+      markdown: {
+        renderer: {
+          code: function (code, lang) {
+            if (lang === "mermaid") {
+              return (
+                '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+              );
+            }
+            return this.origin.code.apply(this, arguments);
+          }
+        }
+      }
     }
   </script>
 
@@ -63,8 +89,13 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/gh/wugenqiang/NoteBook@master/plugin/search.min.js"></script> -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- 复制代码-->
+  <!-- 代码可复制 -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- sql、java、less代码块高亮 -->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-sql.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.26.0/components/prism-less.min.js"></script>
 </body>
 
 </html>
